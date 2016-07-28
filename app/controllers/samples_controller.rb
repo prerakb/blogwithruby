@@ -1,11 +1,11 @@
 class SamplesController < ApplicationController
   def index
-    @errors = Error.order(:Title)
+    @errors = Error.order(:id)
     @samples = Sample.order(:id)
     respond_to do |format|
       format.html
       #format.csv { send_data @errors.to_csv }
-      format.xls { send_data @errors.to_csv(col_sep: "\t") }
+      format.xls #{ send_data @errors.to_csv(col_sep: "\t") }
 
     end
   end

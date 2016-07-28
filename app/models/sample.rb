@@ -130,13 +130,4 @@ class Sample < ApplicationRecord
 		return error
 	end
 
-	def self.to_csv(options = {})
-		CSV.generate(options) do |csv|
-			csv << column_names
-			all.each do |error|
-				csv << error.attributes.value_at(*column_names)
-			end
-		end
-	end
-
  end
